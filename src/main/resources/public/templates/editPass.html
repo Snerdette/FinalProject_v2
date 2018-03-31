@@ -1,0 +1,35 @@
+<div class="container-fluid displayBox col-md-12" ng-app="myApp" controller="editPassController as pass">
+	<div class="subheader">Edit a Pass</div>
+	<form class="form-horizontal" role="form" ng-submit="updatePass(pass)">
+		<div class="form-group">
+			<div class="col-md-1">
+				<label class="control-label">Price: </label> 
+				<input id="price" ng-model="pass.price" class="form-control" required/>
+				<p>{{pass.price | currency:"USD$"}}</p>
+			</div>
+			<div class="col-md-3">
+				<label class="control-label">Captain: </label> 
+				<select id="customer" ng-model="pass.customer" class="form-control" ng-options="customer as customer.lastName for customer in customerList" required>
+					<option value="">Select Captain</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<label class="control-label">Ship: </label> 
+				<select id="vehicle" ng-model="pass.vehicle" class="form-control" ng-options="vehicle as vehicle.model.name for vehicle in vehicleList" required>
+					<option value="">Select Ship</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<label class="control-label">Expiration Date: </label> 
+				<input id="expDate" ng-model="pass.expDate" class="form-control" type="text" required>
+			</div>
+			<div class="modal-footer">
+				<div class="col-md-3 col-md-offset-8 control-label">
+					<button id="submit" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+						Save		
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

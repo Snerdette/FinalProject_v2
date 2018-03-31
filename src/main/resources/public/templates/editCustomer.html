@@ -1,0 +1,31 @@
+<div class="container-fluid col-md-10 displayBox" ng-app="myApp" controller="editCustomerController as edit">
+	<div class="subheader">Edit a Pilot</div>
+	<form class="form-horizontal" role="form" ng-submit="updateCustomer(customer)">
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label">First Name:</label><br>
+				<input id="firstName" type="text" ng-model="customer.firstName" required>
+			</div>
+			<div class="col-md-3">
+				<label class="control-label">Last Name:</label><br>
+				<input id="lastName" type="text" ng-model="customer.lastName" required>
+			</div>
+			<div class="col-md-3">
+				<label class="control-label">Email:</label><br>
+				<input id="email" type="email" name="email" ng-model="customer.email" required>
+				<span ng-show="frm.email.$dirty && frm.email.$error.required">Email Required!</span>
+				<span ng-show="frm.email.$dirty && frm.email.$error.email">Email is Invalid!</span>
+			</div>
+			<div class="col-md-3">
+				<label class="control-label">Phone:</label><br>
+				<input id="phone" type="text" ng-model="customer.phone" ui-mask="(999) 999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" required/>
+			</div>
+			<div class="modal-footer">
+				<div class="col-md-3 col-md-offset-8 control-label">
+					<button id="submit" ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">Update
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

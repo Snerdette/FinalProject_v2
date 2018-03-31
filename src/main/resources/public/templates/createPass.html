@@ -1,0 +1,51 @@
+<div class="container-fluid displayBox col-md-12" ng-app="myApp" controller="passController as pass">
+	<div class="subheader">Issue Docking Pass</div>
+	<form class="form-horizontal" role="form" ng-submit="createPass(pass)">
+		<div class="form-group">
+		<div class="col-md-3">
+			<label class="control-label">Price: </label> 
+			<p class="glyphicon glyphicon-usd inner-addon left-addon"></p>
+			<input id="price" type="number" step="0.01" ng-model="pass.price" class="form-control" placeholder="29.99"  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" name="price" required/>
+			<div role="alert" ng-show="form.submitted || form.price.$touched">
+				<span ng-show="form.price.$error.required">Price is Required!</span>
+				<span ng-show="form.price.$error.price">Invalid Price Format!</span>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Captain: </label> 
+			<select id="customer" ng-model="pass.customer" class="form-control" ng-options="customer as customer.lastName for customer in customerList" >
+				<option value="">Select Captain</option>
+			</select>
+			<div role="alert" ng-show="form.submitted || form.customer.$touched">
+				<span ng-show="form.customer.$error.required">Ship must have a Captain!</span>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Ship: </label> 
+			<select id="vehicle" ng-model="pass.vehicle" class="form-control" ng-options="vehicle as vehicle.model.name for vehicle in vehicleList" >
+				<option value="">Select Ship</option>
+			</select>
+			<div role="alert" ng-show="form.submitted || form.vehicle.$touched">
+				<span ng-show="form.vehicle.$error.required">Date is Required!</span>
+				<span ng-show="form.vehicle.$error.vehicle">Invalid Date Format!</span>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Expiration Date: </label> 
+				<input id="expDate" type="text" ng-model="pass.expDate" placeholder="MM/DD/YYYY" ng-pattern='/^[0,1]?\d{1}\/(([0-2]?\d{1})|([3][0,1]{1}))\/(([1]{1}[9]{1}[9]{1}\d{1})|([2-9]{1}\d{3}))$/' required/>
+				<div role="alert" ng-show="form.submitted || form.expDate.$touched">
+					<span ng-show="form.expDate.$error.required">Expiration Date is Required!</span>
+					<span ng-show="form.expDate.$error.expDate">Invalid Date Format!</span>
+				</div> 
+			</div>
+    	<input class="btn-primary" ng-hide="!form.$valid" type="submit" value="Create">
+			<div class="modal-footer">
+				<div class="col-md-3 col-md-offset-8 control-label">
+					<button id="submit" ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+						Save
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,43 @@
+<div class="container-fluid displayBox col-md-12" ng-app="myApp" controller="editVehicleController as vehicle" data-ng-init="getAllMakes()">
+	<div class="subheader">Edit a Ship</div>
+	<form class="form-horizontal" role="form" ng-submit="updateVehicle(vehicle)" >
+		<div class="form-group">
+			<div class="col-md-2">
+				<label class="control-label">Year: </label> 
+				<input id="year" ng-model="vehicle.year" class="form-control" type="number" min="1941" max="2016">
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Class: </label> 
+				<select id="make" ng-model="make" class="form-control" ng-options="make as make.name for make in makeList" ng-change="onChange(make.id)">
+					<option value="">Select Class</option> 
+					<!-- <option value="" ng-if="editing" selected="model.name">{{make.name}}</option> -->
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Model: </label> 
+				<select id="model" ng-model="vehicle.model" class="form-control" ng-options="model.name for model in modelsForMake">
+					<option value="">Select Model</option>
+					<option value="" selected="model">{{model.name}}</option> 
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Registry #</label> 
+				<input id="plateNumber" ng-model="vehicle.plateNumber" class="form-control" type="text" placeholder="Plate Number">
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Planet: </label> 
+				<input id="plateState" ng-model="vehicle.plateState" class="form-control" type="text" placeholder="Plate State">
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Color: </label> 
+				<input id="color" ng-model="vehicle.color" class="form-control" type="text">
+			</div>
+			<div class="modal-footer">
+				<div class="col-md-3 col-md-offset-8 control-label">
+					<button id="submit" ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">Update
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

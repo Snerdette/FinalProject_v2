@@ -1,0 +1,28 @@
+<div class="container-fluid displayBox col-md-10" ng-app="myApp" ng-controller="vehicleController as vehicle">
+	<div class="subheader">Vehicle List</div>
+	<div ng-repeat="vehicle in vehicleList" class="displayVehicle row">
+		<div class="col-md-2">
+			<button class="itemButton" type="submit" data-ng-click="deleteVehicle(vehicle.id)">Delete</button>
+			<button class="itemButton editButton" type="button" data-ng-click="getVehicleData(vehicle.id)">Edit</button>
+		</div>	
+<!-- 		<div class="col-md-1">	
+			<h5>ID:</h5> <p>{{vehicle.id}}</p>
+		</div>  -->
+		<div class="col-md-2">
+			<h5>Model:</h5> <p>{{vehicle.make}} {{vehicle.model.name}}</p>
+		</div>
+		<div class="col-md-2">	
+			<h5>Color:</h5> <p>{{vehicle.color}}</p>
+		</div>
+		<div class="col-md-2">
+			<h5>Year:</h5> <p>{{vehicle.year}}</p>
+		</div>
+		<div class="col-md-2">	
+			<h5>Plate Number:</h5> <p>{{vehicle.plateNumber}}</p>
+		</div>
+		<div class="col-md-2">
+			<h5>Plate State:</h5> <p>{{vehicle.plateState}}</p>
+		</div>
+	</div>
+</div>
+

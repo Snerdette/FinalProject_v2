@@ -1,0 +1,28 @@
+<div class="container-fluid displayBox col-md-12" ng-app="myApp" ng-controller="passController as pass">
+	<div class="subheader">Pass List</div> 
+		<div ng-repeat="pass in passList" class="displayPass row">
+			<div class="col-md-1">
+				<h5>ID</h5> <p>{{pass.id}}</p> 	
+				<button class="itemButton" type="submit" data-ng-click="deletePass(pass.id)">Delete</button>
+				
+			</div>
+			<div class="col-md-2">
+				<h5>Price</h5> <p>${{pass.price | number}}</p>	
+				<button class="itemButton editButton" type="button" data-ng-click="getPassData(pass.id)">Edit</button>
+			</div>
+			<div class="col-md-2">
+				<h5>Expiration Date:</h5> <p>{{pass.expDate}}</p>
+			</div>  
+			<div class="col-md-2">
+				<h5>Customer</h5> <p>{{pass.customer.lastName}}, {{pass.customer.firstName}}</p>
+			</div>
+			<div class="col-md-2"> 
+				<h5>Vehicle</h5> <p>{{pass.vehicle.model.make.name}}, {{pass.vehicle.model.name}}</p> 
+			</div>
+			<div class="col-md-2"> 
+				<h5>Plate</h5> 
+				<p>{{pass.vehicle.plateNumber}}</p>
+			</div>
+		</div>
+	</div>
+</div>

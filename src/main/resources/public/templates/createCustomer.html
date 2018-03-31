@@ -1,0 +1,35 @@
+<div class="container-fluid displayBox" ng-app="myApp" ng-controller="customerController as customer">
+	<div class="subheader">Register a Captain</div>
+	<form class="form" role="form" ng-submit="createCustomer(customer)">
+		<div class="col-md-3">
+			<label class="control-label">First Name:</label><br>
+			<input id="firstName" type="text" ng-model="customer.firstName" class="form-control" required>
+			<span ng-show="frm.customer.firstName.$dirty && frm.customer.firstName.$error.required" ng-model-options="{updateOn: 'blur'}" >Last Name is Required!</span>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Last Name:</label><br>
+			<input id="firstName" type="text" class="form-control" ng-model="customer.lastName" required>
+			<span ng-show="frm.customer.lastName.$dirty && frm.customer.lastName.$error.required" ng-model-options="{updateOn: 'blur'}" >Last Name is Required!</span>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Email:</label><br>
+			<input class="form-control" id="email" type="email" name="email" ng-model="customer.email" required ng-trim="true" ng-model-options="{updateOn: 'blur'}" />
+			<span ng-show="frm.email.$dirty && frm.email.$error.required">Email Required!</span>
+			<span ng-show="frm.email.$dirty && frm.email.$error.email">Email is Invalid!</span>
+		</div>
+		<div class="col-md-3">
+			<label class="control-label">Phone:</label><br> <!-- ng-pattern="^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" -->
+			<input type="number" class="form-control" id="phone" ng-model="customer.phone" placeholder="555555555" ng-model-options="{updateOn: 'blur'}"  ng-minlength="10" ng-maxlength="10" required/>
+			<div role="alert" ng-show="form.submitted || form.phone.$touched">
+				<span ng-show="form.customer.phone.$dirty && frm.customer.phone.$error.required" ng-model-options="{updateOn: 'blur'}">Phone is Required!</span>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="col-md-3 col-md-offset-8 control-label">
+				<button id="submit" ng-disabled="frm.$invalid" class="form-control pull-right" type="submit" value="submit" class="btn btn-success btn-default button">
+					Save
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SpaceOut Parking Garage</title>
+	<meta charset="utf-8">
+	<meta name="viewport content" width="device-width, initial-scale=1">
+	
+	<!-- Style Sheets -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Sarpanch:800' rel='stylesheet' type='text/css'>
+	
+	<!-- Imports/CDNs -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+	<!-- <script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/angular-ui-mask/dist/mask.js"></script> 
+	 -->
+	
+	<!-- Links to my JavaScript Files -->
+	<script src="javascript/app.js"></script>
+	<script src="javascript/routes.js"></script>
+	
+	<script src="javascript/controllers/customerController.js"></script>
+	<script src="javascript/controllers/passController.js"></script>
+	<script src="javascript/controllers/vehicleController.js"></script>
+	<script src="javascript/controllers/editCustomerController.js"></script>
+	<script src="javascript/controllers/editPassController.js"></script>
+	<script src="javascript/controllers/editVehicleController.js"></script>
+	
+	<script src="javascript/factories/customerFactory.js"></script>
+	<script src="javascript/factories/passFactory.js"></script>
+	<script src="javascript/factories/vehicleFactory.js"></script>
+	<script src="javascript/factories/makeFactory.js"></script>
+	<script src="javascript/factories/modelFactory.js"></script>
+	
+	<!-- <script src="javascript/validation/passValidation.js"></script> -->
+
+</head>
+<body ng-app="myApp">
+	<div class="container-fluid"> 
+	  <h1><span>Space Port</span></h1>  <h2><span>Dashboard</span></h2>
+	  <div class="col-md-2 navbar">
+		  <ul>
+		    <li><a id="createPass" ui-sref="createPass">Create Pass</a></li>
+		    <li><a id="viewPasses" ui-sref="viewPasses">View Passes</a></li>
+		    <li><a id="createCustomer" ui-sref="createCustomer">Create Captain</a></li>
+		    <li><a id="viewCustomers" ui-sref="viewCustomers">View Captains</a></li>
+		    <li><a id="createVehicle" ui-sref="createVehicle">Create Ship</a></li>
+			<li><a id="viewVehicles" ui-sref="viewVehicles">View Ships</a></li>
+		  </ul>
+	  </div>
+	 	<section ui-view class="col-md-10"></section>
+	 </div> 
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class="container-fluid displayBox col-md-10" ng-app="myApp" ng-controller="customerController as customer">
+	<div class="subheader">Captain List</div>	 
+	<div ng-repeat="customer in customerList" class="displayCustomer row">	
+		<div class="col-md-2">
+			<button class="itemButton" type="submit" data-ng-click="deleteCustomer(customer.id)">Delete</button>
+		</div>
+		<div class="col-md-2">
+			<button class="itemButton editButton" type="button" data-ng-click="getCustomerData(customer.id)">Edit</button>
+		</div>
+		<div class="col-md-2">	
+			<h5>Name:</h5> <p>{{customer.lastName}}, {{customer.firstName}}</p>
+		</div>
+		<div class="col-md-2">
+			<h5>Phone:</h5> <p> {{customer.phone}}</p>
+		</div>
+		<div class="col-md-2">
+			<h5>Email:</h5> <p> {{customer.email}}</p>
+		</div>
+	</div>
+</div>
